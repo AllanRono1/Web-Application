@@ -2,11 +2,13 @@
 
 require "functions.php";
 
-//require "router.php";
+require "router.php";
 
 require "Database.php";
 
-$db = new Database();
+$config = require "config.php";
 
-$posts = $db->query("select * from posts where id = 1")->fetchAll(PDO::FETCH_ASSOC);
+$db = new Database($config['database']);
+
+$posts = $db->query("select * from posts where id = 1")->fetchAll();
 dd($posts);
