@@ -16,4 +16,5 @@ $query = "select * from posts where id = ?";
 
 $posts = $db->query($query, [$id])->fetch();
 
+
 ($posts);
