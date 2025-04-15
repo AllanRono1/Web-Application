@@ -11,15 +11,10 @@ $id = ($_GET['id']);
 //$user = ($_GET['1']);
 
 $query = "select * from notes WHERE id = :id";
-$note = $db->query($query, [':id' => $id])->fetch();
+$note = $db->query($query, [':id' => $id])->fetchOrFail();
 
-if(! $note) {
-    abort(404);
-}
+authorize($note["user_id"] === $currentUserId);
 
-if($note["user_id"] != $currentUserId) {
-    abort(Response::FORBIDDEN);
-}
 
 //dd($note);
 

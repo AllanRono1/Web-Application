@@ -27,10 +27,20 @@ class Database {
     }
 
     public function fetchAll(){
-        return $this->statement->fetch();
+        return $this->statement->fetchAll();
     }
 
     public function fetch(){
         return $this->statement->fetch();
     }
+
+    public function fetchOrFail(){
+        $result = $this->fetch();
+        if(! $result){
+            abort(Response::NOT_FOUND);
+        }
+        return $result;
+    }
+
+    
 }

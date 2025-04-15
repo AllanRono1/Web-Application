@@ -10,8 +10,8 @@
       <p>This is the notes page</p>
       <?php foreach ($notes as $note) : ?>
         <li>
-          <a href="/note?id=<?= $notes['id']?>" class="text-blue-500 hover:underline">
-          <?php echo $notes['body'] ?>
+          <a href="/note?id=<?= $note['id']?>" class="text-blue-500 hover:underline">
+          <?php echo $note['body'] ?>
       </a>
         </li>
         <?php endforeach ; ?>
