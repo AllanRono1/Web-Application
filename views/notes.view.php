@@ -8,7 +8,7 @@
   <main>
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
       <p>This is the notes page</p>
-      <?php foreach ($notes as $notes) : ?>
+      <?php foreach ($notes as $note) : ?>
         <li>
           <a href="/note?id=<?= $notes['id']?>" class="text-blue-500 hover:underline">
           <?php echo $notes['body'] ?>

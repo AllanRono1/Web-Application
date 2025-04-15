@@ -8,7 +8,12 @@
   <?php require "partials/banner.php"; ?>
   <main>
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <?= $note['body'] ?>
+    <p class="mb-7">
+      <a href = "/notes" class = "text-blue-400">go back</a>
+</p>
+
+
+    <?= $note['body'] ?>
     </div>
   </main>
   <?php require "partials/footer.php"; ?>
