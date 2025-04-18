@@ -9,7 +9,8 @@
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
 
     <p>
-        <a href="/create-note" class="text-blue-800">Create a new page?</a>
+    <p>This is the notes page</p>
+        <a href="/create-note" class="text-blue-800">Create a new note?</a>
       </p>
       <p>This is the notes page</p>
       <?php foreach ($notes as $note) : ?>

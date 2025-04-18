@@ -8,7 +8,6 @@ $currentUserId = 1;
 
 
 $id = ($_GET['id']);
-//$user = ($_GET['1']);
 
 $query = "select * from notes WHERE id = :id";
 $note = $db->query($query, [':id' => $id])->fetchOrFail();
