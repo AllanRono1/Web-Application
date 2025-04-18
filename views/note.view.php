@@ -13,7 +13,7 @@
 </p>
 
 
-    <?= $note['body'] ?>
+    <?= htmlspecialchars($note['body']) ?>
     </div>
   </main>
   <?php require "partials/footer.php"; ?>
