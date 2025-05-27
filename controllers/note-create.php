@@ -5,7 +5,7 @@ $db = new Database($config['database']);
 
 $heading = "Create Your Notes";
 
-dd($_POST['body']);
+//dd($_POST['body']);
 
 if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
 $error = [];
