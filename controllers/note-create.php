@@ -8,11 +8,9 @@ $db = new Database($config['database']);
 
 $heading = "Create Your Notes";
 
-$validator = new Validator;
-
 if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
 $error = [];
-    if(!$validator->string(($_POST['body']), 1, 500)){
+    if(!Validator::string(($_POST['body']), 1, 500)){
         $error['body'] = 'Warning! cannot be empty';
     }
 
