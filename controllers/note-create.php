@@ -1,15 +1,18 @@
 <?php
 
+require "Validator.php";
+
+
 $config = require "config.php";
 $db = new Database($config['database']);
 
 $heading = "Create Your Notes";
 
-//dd($_POST['body']);
+$validator = new Validator;
 
 if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
 $error = [];
-    if(strlen($_POST['body']) === 0){
+    if($validator->string(($_POST['body']) === 0)){
         $error['body'] = 'Warning! cannot be empty';
     }
 
