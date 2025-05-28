@@ -12,12 +12,8 @@ $validator = new Validator;
 
 if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
 $error = [];
-    if($validator->string(($_POST['body']) === 0)){
+    if(!$validator->string(($_POST['body']), 1, 500)){
         $error['body'] = 'Warning! cannot be empty';
-    }
-
-    if (strlen($_POST['body']) > 500){
-        $error['body'] = 'passed the required number of characters(500)';
     }
 
     if (empty($error)) {
