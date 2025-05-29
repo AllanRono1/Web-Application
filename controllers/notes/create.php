@@ -11,7 +11,7 @@ $heading = "Create Your Notes";
 if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
 $error = [];
     if(!Validator::string(($_POST['body']), 1, 500)){
-        $error['body'] = 'Warning! cannot be empty';
+        $error['body'] = 'Warning! cannot be empty or You have exceeded the no. of input required(1000)';
     }
 
     if (empty($error)) {
