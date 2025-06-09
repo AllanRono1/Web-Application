@@ -23,4 +23,4 @@ $error = [];
 }
 }
 
-require "views/create-notes.view.php";
+require "views/notes/create.view.php";

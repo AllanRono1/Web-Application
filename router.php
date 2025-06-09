@@ -1,5 +1,6 @@
 <?php
 
+
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 //dd($uri);
 
@@ -9,7 +10,7 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
     '/about' => 'controllers/about.php',
     '/notes' => 'controllers/notes/index.php',
     '/note' => 'controllers/notes/show.php',
-    '/create' => 'controllers/notes/create.php',
+    '/create-note' => 'controllers/notes/create.php',
     '/contact' => 'controllers/contact.php'
  ];
 
