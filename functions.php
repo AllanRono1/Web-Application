@@ -19,3 +19,9 @@ function authorize($condition){
         abort(Response::FORBIDDEN);
     }
 }
+
+function base_path($path, $attributes = [])
+{
+    extract ($attributes);
+    return BASE_PATH . $path;
+}

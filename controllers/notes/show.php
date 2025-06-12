@@ -1,6 +1,9 @@
 <?php
 
-$config = require "config.php";
+use Core\Database;
+
+
+$config = require base_path("config.php");
 $db = new Database($config['database']);
 
 $heading = "Note";
@@ -17,4 +20,4 @@ authorize($note["user_id"] === $currentUserId);
 
 //dd($note);
 
-require "views/notes/show.view.php";
+require base_path("views/notes/show.view.php");

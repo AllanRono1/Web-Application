@@ -1,11 +1,12 @@
 <?php
 
-$config = require "config.php";
-$db = new Database($config['database']);
+use Core\Database;
 
-$heading = "My Notes";
+
+$config = require base_path("config.php");
+$db = new Database($config['database']);
 
 $query = "select * from notes";
 $notes = $db->query($query)->fetchAll();
 
-require "views/notes/index.view.php";
+require base_path("views/notes/index.view.php", [$heading = "My Notes"]);
