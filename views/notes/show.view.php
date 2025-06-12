@@ -11,9 +11,11 @@
     <p class="mb-7">
       <a href = "/notes" class = "text-blue-400">go back</a>
 </p>
-
-
-    <?= htmlspecialchars($note['body']) ?>
+<?= htmlspecialchars($note['body']) ?>
+    <form class ="mt-6" method="post">
+      <input type="hidden" name= "id" value="<?= $note['id'] ?>"></input>
+      <button class="text-red-600 text-medium">Delete</button>
+    </form>
     </div>
   </main>
   <?php require base_path("views/partials/footer.php"); ?>
