@@ -12,7 +12,8 @@
       <a href = "/notes" class = "text-blue-400">go back</a>
 </p>
 <?= htmlspecialchars($note['body']) ?>
-    <form class ="mt-6" method="post">
+    <form class ="mt-6" method="POST">
+      <input type= "hidden" name ="_method" value="DELETE">
       <input type="hidden" name= "id" value="<?= $note['id'] ?>"></input>
       <button class="text-red-600 text-medium">Delete</button>
     </form>
