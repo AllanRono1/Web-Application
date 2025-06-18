@@ -20,11 +20,12 @@ $error=[];
 if(! Validator::string(($_POST['body']), 1, 500)){
         $error['body'] = 'Warning! cannot be empty or You have exceeded the no. of input required(1000)';
     }
-    
+    //if no validation errors,update the record in the notes db table
+
     if (count($error)) {
         return require base_path("views/notes/edit.view.php");
     }
-//if no validation errors,update the record in the notes db table
+//update the record in the notes db table
 
 $db->query("update notes set body = :body where id = :id", ['id' => $_POST['id'], 'body' => $_POST['body']]);
 
