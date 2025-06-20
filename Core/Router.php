@@ -57,13 +57,9 @@ public function route($uri, $method)
    foreach ($this->routes as $route){
       if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
          #apply the middleware
-         if ($route['middleware']) {
 
-         $middleware = Middleware::GPS[$route['middleware']];
+        Middleware::resolve($route['middleware']);
 
-         (new $middleware)->handle();
-         
-         }
          
          return require base_path($route['controllers']);
       }
