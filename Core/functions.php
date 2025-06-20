@@ -35,3 +35,20 @@ function base_path($path, $attributes = [])
     return BASE_PATH . $path;
 }
 
+function login($users)
+{
+    $_SESSION['users'] = [
+        'email' => $users['email']
+    ];
+    session_regenerate_id(true);
+}
+
+function logout()
+{
+$_SESSION = [];
+session_destroy();
+
+$params = session_get_cookie_params();
+setcookie('PHPSESSID', '', time() -3600, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
+
+}

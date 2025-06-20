@@ -36,13 +36,11 @@ if ($user) {
     #if not create a account for the new user and save records to database
 $db->query("INSERT INTO users(email, password) VALUES(:email, :password)", [
      'email' => $email,
-     'password' => $password
+     'password' => password_hash($password, PASSWORD_BCRYPT)
  ]);
     
      #mark the user has logged in
-    $_SESSION['users'] = [
-        'email' => $email
-    ];
+    login($users);
 
     #redirect to home page
 
