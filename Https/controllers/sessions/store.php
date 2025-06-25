@@ -1,29 +1,22 @@
 <?php
 
 #login our user if credential matches
-
 use Core\App;
 use Core\Database;
 use Core\Validator;
-
-$db = App::resolve("Core\Database");
+use Https\Forms\LoginForm;
 
 $email = $_POST['email'];
 $password = $_POST['password'];
 
 
-$error = [];
 
-if (! Validator::string($email)) {
-$error['email'] = "Invalid email address";
-}
+$db = App::resolve("Core\Database");
 
-if (! Validator::string($password)) {
-    $error['password'] = "Incorrect password";
-}
+$form = new LoginForm;
+if (! $form->validate($email,$password)) {
+    return require base_path("views/sessions/create.view.php", [$error = $form->errors()]);
 
-if (! empty($error)){
-    return require base_path("views/sessions/create.view.php");
 }
 
 #match credentials
@@ -32,7 +25,7 @@ $users = $db->query("select * from users where email = :email", [
     'email' => $email
 ])->fetch();
 
-if(! $users){
+if($users){
     #match the corresponding password for the email
 
 if (password_verify($password, $users['password']))
