@@ -3,6 +3,7 @@
 #login our user if credential matches
 use Https\Forms\LoginForm;
 use Core\Authenticator;
+use Core\Session;
 
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -17,8 +18,7 @@ if ((new Authenticator)->attempt($email, $password)) {
 $form->errors("email", "No matching account for that email address and password.");
 }
 
-$_SESSION['_flash']['error'] = $form->error();
-
+Session::flash('error', $form->error());
 
 return redirect('/login');
 //return require base_path("views/sessions/create.view.php", $error = $form->error());
