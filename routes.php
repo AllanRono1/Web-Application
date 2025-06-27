@@ -24,7 +24,6 @@ $router->get('/notes', 'notes/index.php')->only('auth');
 $router->get('/note', 'notes/show.php');
 $router->delete('/note', 'notes/destroy.php');
 
-
 $router->get('/note/edit', 'notes/edit.php');
 $router->patch('/notes', 'notes/update.php');
 

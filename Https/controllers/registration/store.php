@@ -1,7 +1,9 @@
 <?php
 
+use Core\Authenticator;
 use Core\Validator;
 use Core\App;
+use Https\Forms\LoginForm;
 
 $db = App::resolve('Core\Database');
 
@@ -27,8 +29,8 @@ if (! empty($error)) {
 
 #if the user exists, login to the page
 
-$user = $db->query("select * from users where email = :email", ['email' => $_POST['email']])->fetch();
-if ($user) {
+$users = $db->query("select * from users where email = :email", ['email' => $_POST['email']])->fetch();
+if ($users) {
     #if user exists redirect to the login page
     header("location: /");
     exit();

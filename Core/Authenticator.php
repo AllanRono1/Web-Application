@@ -3,9 +3,6 @@
 namespace Core; 
 
 
-use Core\Database;
-use Core\App;
-
 class Authenticator 
 {
 
@@ -22,12 +19,10 @@ if($users){
 if (password_verify($password, $users['password']))
 {
     $this->login($users);
-    header('location: /');
-    exit();
+    return true;
 }
-return true;
 }
-
+return false;
 
 }
 

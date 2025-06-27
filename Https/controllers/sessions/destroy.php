@@ -1,5 +1,7 @@
 <?php
 
+use Core\Authenticator;
+
 #log the user 
 logout();
 
