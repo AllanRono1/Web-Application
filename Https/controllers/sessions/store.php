@@ -19,6 +19,9 @@ $form->errors("email", "No matching account for that email address and password.
 }
 
 Session::flash('error', $form->error());
+Session::flash('old', [
+    'email' => $_POST['email']
+]);
 
 return redirect('/login');
 //return require base_path("views/sessions/create.view.php", $error = $form->error());
