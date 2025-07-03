@@ -4,25 +4,19 @@
 use Https\Forms\LoginForm;
 use Core\Authenticator;
 use Core\Session;
+use Core\ValidationException;
 
-$email = $_POST['email'];
-$password = $_POST['password'];
 //create a login form and try to validate email and password
 
-$form = new LoginForm();
+$form = LoginForm::validate($attributes = [
+    'email' => $_POST['email'],
+    'password' => $_POST['password']
+]);
 
-if ($form->validate($email,$password)) {
-if ((new Authenticator)->attempt($email, $password)) {
+if ((new Authenticator)->attempt($attributes['email'], $attributes['password'])) {
     redirect('/');
 }
 $form->errors("email", "No matching account for that email address and password.");
-}
 
-Session::flash('error', $form->error());
-Session::flash('old', [
-    'email' => $_POST['email']
-]);
 
 return redirect('/login');
-//return require base_path("views/sessions/create.view.php", $error = $form->error());
-
