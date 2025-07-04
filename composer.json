@@ -1,0 +1,16 @@
+{
+    "name": "tsc/websites",
+    "authors": [
+        {
+            "name": "AllanRono1",
+            "email": "allanrono18@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "Https\\": "Https/"
+        }
+    }
+}

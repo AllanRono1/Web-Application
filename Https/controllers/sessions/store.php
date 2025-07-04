@@ -19,7 +19,5 @@ if (!$signedIn) {
     $form->errors("email", "No matching account for that email address and password.")
     ->throw();
 }
-$form->errors("email", "No matching account for that email address and password.")
-->throw();
 
 redirect('/');
