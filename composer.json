@@ -6,11 +6,32 @@
             "email": "allanrono18@gmail.com"
         }
     ],
-    "require": {},
-    "autoload": {
+    "require": {
+        "illuminate/collections": "^12.19"
+    },
+    "autoload":{
         "psr-4": {
             "Core\\": "Core/",
             "Https\\": "Https/"
+        }
+    },
+    "require-dev": {
+        "pestphp/pest": "^3.8",
+        "phpunit/phpunit": "^11.5"
+    },
+    "autoload-dev":{
+    "psr-4": {
+            "Tests\\": "tests/"
+        },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+},
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
         }
     }
 }
